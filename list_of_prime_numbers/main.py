@@ -1,17 +1,32 @@
 
 def _is_prime(number):
-    pass
+    if number == 2:
+        return True
+    else:
+        for i in range(2,number):
+            if (number % i) == 0:
+                return False
+    return True
 
 
 def list_of_prime_numbers(max_number):
-    pass
-
+    primeList = []
+    for i in range(2,max_number + 1):
+        if (_is_prime(i)) == True:
+            primeList.append(i)
+    print(primeList)
+    return primeList
+    
+        
+    
+    
+    
+#return primeNumberList
 # =================== #
 # ====== Tests ====== #
 # =================== #
 
 # Test: `is_prime`
-
 
 def test_big_number_prime_true():
     assert _is_prime(19) is True
@@ -37,7 +52,6 @@ def test_four_prime():
 
 def test_big_number_list():
     assert list_of_prime_numbers(19) == [2, 3, 5, 7, 11, 13, 17, 19]
-
 
 def test_list_one():
     assert list_of_prime_numbers(2) == [2]
